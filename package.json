@@ -1,0 +1,21 @@
+{
+  "name": "femm",
+  "version": "1.0.0",
+  "private": true,
+  "description": "前端工程化相关配置",
+  "homepage": "https://github.com/maomao1996/femm#readme",
+  "bugs": {
+    "url": "https://github.com/maomao1996/femm/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maomao1996/femm.git"
+  },
+  "license": "MIT",
+  "author": "maomao <1714487678@qq.com>",
+  "prettier": "@femm/prettier",
+  "devDependencies": {
+    "@changesets/cli": "^2.26.0",
+    "@femm/prettier": "workspace:*"
+  }
+}
