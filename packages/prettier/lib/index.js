@@ -16,5 +16,5 @@ module.exports = {
   arrowParens: 'always', // 箭头函数仅有一个参数时，参数也添加括号 (x) => x
   proseWrap: 'preserve', // 对 Markdown 文本换行不进行任何操作，保持原样
   htmlWhitespaceSensitivity: 'ignore', // 对 HTML 全局空白不敏感
-  vueIndentScriptAndStyle: true // 不对 vue 中的 script 及 style 标签进行缩进
+  vueIndentScriptAndStyle: false // 不对 vue 中的 script 及 style 标签进行缩进
 }
