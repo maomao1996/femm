@@ -1,5 +1,11 @@
 # @femm/prettier
 
+## 1.0.2
+
+### Patch Changes
+
+- 添加新的配置规则：`rangeStart` `rangeEnd` `requirePragma` `insertPragma` `endOfLine` `embeddedLanguageFormatting` `singleAttributePerLine`
+
 ## 1.0.1
 
 ### Patch Changes
