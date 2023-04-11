@@ -16,6 +16,7 @@
   "prettier": "@femm/prettier",
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
-    "@femm/prettier": "workspace:*"
+    "@femm/prettier": "workspace:*",
+    "jest": "^29.5.0"
   }
 }

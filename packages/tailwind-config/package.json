@@ -24,6 +24,13 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
+  "scripts": {
+    "test": "jest --clearCache && jest"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.21",
+    "tailwindcss": "~3.3.1"
+  },
   "peerDependencies": {
     "tailwindcss": ">=3.0.0"
   }
