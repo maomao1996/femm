@@ -13,6 +13,9 @@ importers:
   packages/prettier:
     specifiers: {}
 
+  packages/tailwind-config:
+    specifiers: {}
+
 packages:
 
   /@babel/code-frame/7.18.6:

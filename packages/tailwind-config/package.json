@@ -1,0 +1,30 @@
+{
+  "name": "@femm/tailwind-config",
+  "version": "1.0.0",
+  "description": "Personal tailwindcss config",
+  "keywords": [
+    "tailwindcss",
+    "tailwindcss-config"
+  ],
+  "homepage": "https://github.com/maomao1996/femm#readme",
+  "bugs": {
+    "url": "https://github.com/maomao1996/femm/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maomao1996/femm.git"
+  },
+  "license": "MIT",
+  "author": "maomao <1714487678@qq.com>",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "tailwindcss": ">=3.0.0"
+  }
+}
