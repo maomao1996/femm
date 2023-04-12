@@ -1,7 +1,5 @@
 # @femm/prettier
 
-茂茂的 `prettier` 配置文件
-
 ## 安装
 
 ```sh

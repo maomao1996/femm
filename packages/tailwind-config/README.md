@@ -1,7 +1,5 @@
 # @femm/tailwind-config
 
-茂茂的 `tailwindcss` 配置
-
 ## 安装
 
 ```sh
@@ -22,3 +20,10 @@ module.exports = {
   presets: [require('@femm/tailwind-config')]
 }
 ```
+
+## 功能
+
+- [x] `tailwindcss` 基础配置
+- [x] 新的工具类
+  - `flex-row-center` 水平垂直居中（水平排列）
+  - `flex-col-center` 水平垂直居中（垂直排列）
