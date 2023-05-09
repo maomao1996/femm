@@ -36,9 +36,6 @@ importers:
       picocolors:
         specifier: ^1.0.0
         version: 1.0.0
-      simple-git-hooks:
-        specifier: '>=2.0.0'
-        version: 2.8.1
       terminal-link:
         specifier: ^3.0.0
         version: 3.0.0
@@ -3325,6 +3322,7 @@ packages:
     resolution: {integrity: sha512-DYpcVR1AGtSfFUNzlBdHrQGPsOhuuEJ/FkmPOOlFysP60AHd3nsEpkGq/QEOdtUyT1Qhk7w9oLmFoMG+75BDog==}
     hasBin: true
     requiresBuild: true
+    dev: true
 
   /sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}

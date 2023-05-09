@@ -33,9 +33,6 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "peerDependencies": {
-    "simple-git-hooks": ">=2.0.0"
-  },
   "dependencies": {
     "picocolors": "^1.0.0",
     "terminal-link": "^3.0.0"
