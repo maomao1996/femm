@@ -14,10 +14,15 @@
   },
   "license": "MIT",
   "author": "maomao <1714487678@qq.com>",
-  "prettier": "@femm/prettier",
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
     "@femm/prettier": "workspace:*",
-    "jest": "^29.5.0"
+    "@femm/verify-commit": "workspace:*",
+    "jest": "^29.5.0",
+    "simple-git-hooks": "^2.8.1"
+  },
+  "prettier": "@femm/prettier",
+  "simple-git-hooks": {
+    "commit-msg": "npx femm-verify-commit $1"
   }
 }

@@ -1,0 +1,43 @@
+{
+  "name": "@femm/verify-commit",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Simple commit message format verify",
+  "keywords": [
+    "git",
+    "commit",
+    "message",
+    "commit-message",
+    "verify-commit",
+    "commit-msg"
+  ],
+  "homepage": "https://github.com/maomao1996/femm#readme",
+  "bugs": {
+    "url": "https://github.com/maomao1996/femm/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maomao1996/femm.git"
+  },
+  "license": "MIT",
+  "author": "maomao <1714487678@qq.com>",
+  "main": "./index.js",
+  "bin": {
+    "femm-verify-commit": "bin/index.js"
+  },
+  "files": [
+    "bin",
+    "index.js"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "simple-git-hooks": ">=2.0.0"
+  },
+  "dependencies": {
+    "picocolors": "^1.0.0",
+    "terminal-link": "^3.0.0"
+  }
+}
