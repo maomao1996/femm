@@ -2,6 +2,7 @@
   "name": "femm",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@8.0.0",
   "description": "前端工程化相关配置",
   "homepage": "https://github.com/maomao1996/femm#readme",
   "bugs": {
