@@ -1,7 +1,7 @@
 {
   "name": "@femm/verify-commit",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple commit message format verify",
   "keywords": [
     "git",
