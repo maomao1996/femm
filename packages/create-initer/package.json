@@ -1,0 +1,48 @@
+{
+  "name": "create-initer",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "An easy way to create various configuration files",
+  "keywords": [
+    "config",
+    "create-config",
+    "prettier",
+    "prettier-config",
+    "commitlint",
+    "husky"
+  ],
+  "homepage": "https://github.com/maomao1996/femm#readme",
+  "bugs": {
+    "url": "https://github.com/maomao1996/femm/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maomao1996/femm.git"
+  },
+  "license": "MIT",
+  "author": "maomao <1714487678@qq.com>",
+  "bin": {
+    "create-initer": "./dist/index.cjs"
+  },
+  "files": [
+    "dist",
+    "template"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "dev": "node ./scripts/build.js && node ./dist/index.cjs",
+    "build": "node ./scripts/build.js"
+  },
+  "dependencies": {
+    "@astrojs/cli-kit": "^0.2.3",
+    "arg": "^5.0.2",
+    "execa": "^7.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "esbuild": "^0.17.18"
+  }
+}
