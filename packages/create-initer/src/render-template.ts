@@ -11,7 +11,7 @@ export function renderTemplate(templateName: string) {
   const files = fs.readdirSync(templatePath)
 
   for (const file of files) {
-    const filePath = path.resolve(cwd, file)
+    let filePath = path.resolve(cwd, file)
     const templateFilePath = path.resolve(templatePath, file)
 
     if (file === 'package.json') {
@@ -20,6 +20,11 @@ export function renderTemplate(templateName: string) {
       const pkg = sortDependencies(deepMerge(existing, newPackage))
       fs.writeFileSync(filePath, JSON.stringify(pkg, null, 2) + '\n')
       continue
+    }
+
+    if (file.startsWith('_')) {
+      // rename `_file` to `.file`
+      filePath = path.resolve(path.dirname(filePath), file.replace(/^_/, '.'))
     }
 
     fs.copyFileSync(templateFilePath, filePath)

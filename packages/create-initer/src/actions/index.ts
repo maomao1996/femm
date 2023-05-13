@@ -6,3 +6,4 @@ export * from './commitlint'
 export * from './husky'
 
 export * from './editorconfig'
+export * from './gitignore'
