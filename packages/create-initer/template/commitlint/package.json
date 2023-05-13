@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@femm/verify-commit": "^1.0.1"
+  }
+}
