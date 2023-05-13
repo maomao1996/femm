@@ -2,7 +2,7 @@
 
 import { color, label } from '@astrojs/cli-kit'
 
-import { getContext, prettier, lintStaged, commitlint, husky } from './actions'
+import { getContext, prettier, lintStaged, commitlint, husky, editorconfig } from './actions'
 import { error } from './messages'
 
 async function main() {
@@ -12,7 +12,7 @@ async function main() {
   console.log(`Welcome to use ${label('create-initer', color.bgGreen, color.black)}`)
 
   if (ctx.input) {
-    const steps = [prettier, lintStaged, commitlint, husky]
+    const steps = [prettier, lintStaged, commitlint, husky, editorconfig]
 
     for (const step of steps) {
       await step(ctx)
