@@ -4,6 +4,7 @@ import { color, label } from '@astrojs/cli-kit'
 
 import {
   getContext,
+  pkg,
   prettier,
   lintStaged,
   commitlint,
@@ -18,6 +19,8 @@ async function main() {
   const ctx = await getContext(cleanArgv)
 
   console.log(`Welcome to use ${label('create-initer', color.bgGreen, color.black)}`)
+
+  await pkg(ctx)
 
   if (ctx.input) {
     const steps = [prettier, lintStaged, commitlint, husky, editorconfig, gitignore]
