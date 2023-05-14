@@ -34,12 +34,15 @@ export async function husky(ctx: Context) {
           start: `Husky adding pre-commit hook...`,
           end: 'Husky added pre-commit hook',
           while: () =>
-            runCommand('npx', ['husky', 'add', '.husky/pre-commit', 'npx lint-staged']).catch(
-              (e) => {
-                error('error', e)
-                ctx.exit(1)
-              }
-            )
+            runCommand('npx', [
+              'husky',
+              'add',
+              '.husky/pre-commit',
+              'npx lint-staged --quiet'
+            ]).catch((e) => {
+              error('error', e)
+              ctx.exit(1)
+            })
         })
       }
 
