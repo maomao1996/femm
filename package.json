@@ -14,6 +14,10 @@
   },
   "license": "MIT",
   "author": "maomao <1714487678@qq.com>",
+  "scripts": {
+    "changeset": "changeset",
+    "version": "changeset version && pnpm install"
+  },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
     "@femm/prettier": "workspace:*",
