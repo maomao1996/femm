@@ -1,5 +1,11 @@
 # create-initer
 
+## 0.1.1
+
+### Patch Changes
+
+- e9da37d: 关闭 `lint-staged` 控制台输出
+
 ## 0.1.0
 
 ### Minor Changes
