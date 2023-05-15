@@ -6,6 +6,7 @@ import {
   getContext,
   pkg,
   prettier,
+  eslint,
   lintStaged,
   commitlint,
   husky,
@@ -23,7 +24,7 @@ async function main() {
   await pkg(ctx)
 
   if (ctx.input) {
-    const steps = [prettier, lintStaged, commitlint, husky, editorconfig, gitignore]
+    const steps = [prettier, eslint, lintStaged, commitlint, husky, editorconfig, gitignore]
 
     for (const step of steps) {
       await step(ctx)

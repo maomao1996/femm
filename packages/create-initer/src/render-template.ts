@@ -1,10 +1,11 @@
-import * as fs from 'node:fs'
 import * as path from 'node:path'
+import fs from 'fs-extra'
+import template from 'lodash.template'
 
 import { deepMerge } from './utils/deep-merge'
 import { sortDependencies } from './utils/sort-dependencies'
 
-export function renderTemplate(templateName: string) {
+export function renderTemplate(templateName: string, templateData?: Record<string, unknown>) {
   const cwd = process.cwd()
   const templateRoot = path.resolve(__dirname, '../template')
   const templatePath = path.resolve(templateRoot, templateName)
@@ -16,9 +17,14 @@ export function renderTemplate(templateName: string) {
 
     if (file === 'package.json') {
       const existing = JSON.parse(fs.readFileSync(filePath, 'utf8'))
-      const newPackage = JSON.parse(fs.readFileSync(templateFilePath, 'utf8'))
-      const pkg = sortDependencies(deepMerge(existing, newPackage))
-      fs.writeFileSync(filePath, JSON.stringify(pkg, null, 2) + '\n')
+      const newPackage = fs.readFileSync(templateFilePath, 'utf8')
+      const pkg = sortDependencies(
+        deepMerge(
+          existing,
+          JSON.parse(templateData ? template(newPackage)(templateData) : newPackage)
+        )
+      )
+      fs.writeFileSync(filePath, `${JSON.stringify(pkg, null, 2)}\n`)
       continue
     }
 
@@ -27,6 +33,11 @@ export function renderTemplate(templateName: string) {
       filePath = path.resolve(path.dirname(filePath), file.replace(/^_/, '.'))
     }
 
-    fs.copyFileSync(templateFilePath, filePath)
+    if (templateData) {
+      const compiled = template(fs.readFileSync(templateFilePath, 'utf-8'))(templateData)
+      fs.outputFileSync(filePath, compiled)
+    } else {
+      fs.copyFileSync(templateFilePath, filePath)
+    }
   }
 }

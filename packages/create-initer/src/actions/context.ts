@@ -30,7 +30,7 @@ export function getContext(argv: string[]): Context {
     input,
     config: {},
 
-    render: (templateName: string) => renderTemplate(templateName),
+    render: renderTemplate,
     exit(code) {
       process.exit(code)
     }
