@@ -15,7 +15,7 @@ export async function editorconfig(ctx: Context) {
       initial: true
     })
 
-    ctx.config.commitlint = needEditorconfig
+    ctx.config.editorconfig = needEditorconfig
 
     if (needEditorconfig) {
       await spinner({

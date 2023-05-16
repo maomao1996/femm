@@ -15,7 +15,7 @@ export async function gitignore(ctx: Context) {
       initial: true
     })
 
-    ctx.config.commitlint = needGitignore
+    ctx.config.gitignore = needGitignore
 
     if (needGitignore) {
       await spinner({
