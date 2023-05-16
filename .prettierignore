@@ -1,0 +1,22 @@
+# See https://github.com/prettier/prettier/blob/main/docs/ignore.md
+
+# dependencies
+node_modules
+
+# compiled output
+dist
+build
+cache
+.cache
+.temp
+.tmp
+
+# lock files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# user-specific files
+packages/create-initer/template/eslint
+packages/create-initer/template/lint-staged
+packages/create-initer/template/gitignore

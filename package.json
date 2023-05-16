@@ -16,17 +16,27 @@
   "author": "maomao <1714487678@qq.com>",
   "scripts": {
     "changeset": "changeset",
-    "version": "changeset version && pnpm install"
+    "version": "changeset version && pnpm install",
+    "format": "prettier --write .",
+    "prepare": "npx simple-git-hooks"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
     "@femm/prettier": "workspace:*",
     "@femm/verify-commit": "workspace:*",
     "jest": "^29.5.0",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
     "simple-git-hooks": "^2.8.1"
   },
   "prettier": "@femm/prettier",
   "simple-git-hooks": {
+    "pre-commit": "npx lint-staged --quiet",
     "commit-msg": "npx femm-verify-commit $1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,tsx,vue,css,scss,less,md}": [
+      "prettier --write"
+    ]
   }
 }
