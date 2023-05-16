@@ -13,7 +13,7 @@ export async function installHusky(ctx: Context) {
       runCommand('npx', ['husky', 'install']).catch((e) => {
         error('error', e)
         ctx.exit(1)
-      })
+      }),
   })
 
   if (ctx.config.lintStaged) {
@@ -25,8 +25,8 @@ export async function installHusky(ctx: Context) {
           (e) => {
             error('error', e)
             ctx.exit(1)
-          }
-        )
+          },
+        ),
     })
   }
 
@@ -39,8 +39,8 @@ export async function installHusky(ctx: Context) {
           (e) => {
             error('error', e)
             ctx.exit(1)
-          }
-        )
+          },
+        ),
     })
   }
 }
@@ -53,7 +53,7 @@ export async function husky(ctx: Context) {
       label: title('Husky'),
       message: `Need husky to check commit-msg and lint-staged?`,
       hint: 'recommended',
-      initial: true
+      initial: true,
     })
 
     if (needHusky) {

@@ -7,5 +7,5 @@
 module.exports = {
   mode: 'jit',
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx,vue}'],
-  plugins: [require('./plugins/flex-center')]
+  plugins: [require('./plugins/flex-center')],
 }

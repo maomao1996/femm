@@ -18,8 +18,8 @@ it('tailwindcss presets config', () => {
   postcss([
     require('tailwindcss')({
       content: [{ raw: `flex flex-row-center z-[1996]` }],
-      presets: [require('../lib/index')]
-    })
+      presets: [require('../lib/index')],
+    }),
   ])
     .process('@tailwind utilities', { from: undefined })
     .then(({ css }) => {

@@ -63,7 +63,7 @@ export function printHelp({
   headline,
   usage,
   tables,
-  description
+  description,
 }: {
   commandName: string
   headline?: string
@@ -93,7 +93,7 @@ export function printHelp({
   if (headline) {
     message.push(
       linebreak(),
-      `${title(commandName)} ${color.green(`v${process.env.PACKAGE_VERSION ?? ''}`)} ${headline}`
+      `${title(commandName)} ${color.green(`v${process.env.PACKAGE_VERSION ?? ''}`)} ${headline}`,
     )
   }
 

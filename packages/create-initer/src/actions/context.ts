@@ -29,9 +29,9 @@ export function getContext(argv: string[]): Context {
       '-y': '--yes',
 
       '--install': Boolean,
-      '--no-install': Boolean
+      '--no-install': Boolean,
     },
-    { argv, permissive: true }
+    { argv, permissive: true },
   )
   const pkgManager = detectPackageManager()?.name ?? 'npm'
   const {
@@ -39,7 +39,7 @@ export function getContext(argv: string[]): Context {
     '--input': input = false,
     '--yes': yes,
     '--install': install,
-    '--no-install': noInstall
+    '--no-install': noInstall,
   } = flags
 
   const context: Context = {
@@ -54,7 +54,7 @@ export function getContext(argv: string[]): Context {
     render: renderTemplate,
     exit(code) {
       process.exit(code)
-    }
+    },
   }
 
   return context

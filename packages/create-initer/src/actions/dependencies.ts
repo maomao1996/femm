@@ -14,7 +14,7 @@ export async function dependencies(ctx: Context) {
       label: title('Deps'),
       message: `Install dependencies ?`,
       hint: 'recommended',
-      initial: true
+      initial: true,
     }))
     ctx.install = deps
   }
@@ -26,7 +26,7 @@ export async function dependencies(ctx: Context) {
         install(ctx.pkgManager).catch((e) => {
           error('error', e)
           ctx.exit(1)
-        })
+        }),
     })
   } else {
     await info('Deps [skip]', 'Remember to install dependencies after setup.')

@@ -3,7 +3,7 @@ import { execa } from 'execa'
 export async function runCommand(
   command: string,
   args: string[] = [],
-  cwd: string = process.cwd()
+  cwd: string = process.cwd(),
 ) {
   const runCommandExec = execa(command, args, { cwd })
   return new Promise<void>((resolve, reject) => {

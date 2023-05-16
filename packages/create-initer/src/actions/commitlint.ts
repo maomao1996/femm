@@ -11,7 +11,7 @@ export async function commitlint(ctx: Context) {
     label: title('Commitlint'),
     message: `Need commitlint ?`,
     hint: 'recommended',
-    initial: true
+    initial: true,
   })
 
   ctx.config.commitlint = needCommitlint
@@ -29,7 +29,7 @@ export async function commitlint(ctx: Context) {
             error('error', e)
             ctx.exit(1)
           }
-        })
+        }),
     })
   } else {
     await info('Commitlint [skip]', "Don't need commitlint")

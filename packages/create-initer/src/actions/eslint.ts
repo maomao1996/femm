@@ -9,7 +9,7 @@ const CHOICES = [
   { value: '@antfu/eslint-config-basic', label: '@antfu/eslint-config-basic' },
   { value: '@antfu/eslint-config-ts', label: '@antfu/eslint-config-ts' },
   { value: '@antfu/eslint-config-react', label: '@antfu/eslint-config-react' },
-  { value: '@antfu/eslint-config-vue', label: '@antfu/eslint-config-vue' }
+  { value: '@antfu/eslint-config-vue', label: '@antfu/eslint-config-vue' },
 ]
 
 export async function eslint(ctx: Context) {
@@ -19,7 +19,7 @@ export async function eslint(ctx: Context) {
     label: title('ESLint'),
     message: `Need eslint ?`,
     hint: 'recommended',
-    initial: true
+    initial: true,
   })
 
   ctx.config.eslint = eslint
@@ -38,7 +38,7 @@ export async function eslint(ctx: Context) {
       label: title('ESLintConfig'),
       message: 'Select a eslint config',
       initial: '@antfu/eslint-config',
-      choices
+      choices,
     })
 
     ctx.config.eslintConfig = eslintConfig
@@ -55,7 +55,7 @@ export async function eslint(ctx: Context) {
             error('error', e)
             ctx.exit(1)
           }
-        })
+        }),
     })
   } else {
     await info('ESLint [skip]', "Don't need eslint")

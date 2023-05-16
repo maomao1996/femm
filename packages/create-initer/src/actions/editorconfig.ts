@@ -13,7 +13,7 @@ export async function editorconfig(ctx: Context) {
       label: title('Editorconfig'),
       message: `Need editorconfig ?`,
       hint: 'recommended',
-      initial: true
+      initial: true,
     })
 
     ctx.config.editorconfig = needEditorconfig
@@ -31,7 +31,7 @@ export async function editorconfig(ctx: Context) {
               error('error', e)
               ctx.exit(1)
             }
-          })
+          }),
       })
     } else {
       await info('Editorconfig [skip]', "Don't need editorconfig")

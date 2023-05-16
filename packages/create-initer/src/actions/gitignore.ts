@@ -13,7 +13,7 @@ export async function gitignore(ctx: Context) {
       label: title('Gitignore'),
       message: `Need gitignore ?`,
       hint: 'recommended',
-      initial: true
+      initial: true,
     })
 
     ctx.config.gitignore = needGitignore
@@ -31,7 +31,7 @@ export async function gitignore(ctx: Context) {
               error('error', e)
               ctx.exit(1)
             }
-          })
+          }),
       })
     } else {
       await info('Gitignore [skip]', "Don't need gitignore")

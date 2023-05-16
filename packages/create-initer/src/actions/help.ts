@@ -9,8 +9,8 @@ export function help() {
       Flags: [
         ['--help (-h)', 'See all available flags.'],
         ['--yes (-y)', 'Skip all prompt by accepting defaults.'],
-        ['--install / --no-install', 'Install dependencies (or not).']
-      ]
-    }
+        ['--install / --no-install', 'Install dependencies (or not).'],
+      ],
+    },
   })
 }

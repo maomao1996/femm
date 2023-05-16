@@ -14,7 +14,7 @@ import {
   editorconfig,
   gitignore,
   def,
-  dependencies
+  dependencies,
 } from './actions'
 import { error, success } from './messages'
 
@@ -48,7 +48,7 @@ async function main() {
     husky,
     editorconfig,
     gitignore,
-    dependencies
+    dependencies,
   ]
   for (const step of steps) {
     await step(ctx)

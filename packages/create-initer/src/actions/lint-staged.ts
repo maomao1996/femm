@@ -12,7 +12,7 @@ export async function lintStaged(ctx: Context) {
       label: title('LintStaged'),
       message: `Need lint-staged ?`,
       hint: 'recommended',
-      initial: true
+      initial: true,
     })
 
     ctx.config.lintStaged = needLintStaged
@@ -30,7 +30,7 @@ export async function lintStaged(ctx: Context) {
               error('error', e)
               ctx.exit(1)
             }
-          })
+          }),
       })
     } else {
       await info('LintStaged [skip]', "Don't need lint-staged")

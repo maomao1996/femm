@@ -11,7 +11,7 @@ export async function prettier(ctx: Context) {
     label: title('Prettier'),
     message: `Need prettier ?`,
     hint: 'recommended',
-    initial: true
+    initial: true,
   })
 
   ctx.config.prettier = needPrettier
@@ -29,7 +29,7 @@ export async function prettier(ctx: Context) {
             error('error', e)
             ctx.exit(1)
           }
-        })
+        }),
     })
   } else {
     await info('Prettier [skip]', "Don't need prettier")

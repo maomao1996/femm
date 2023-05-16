@@ -18,7 +18,7 @@ if (!commitRE.test(msg)) {
   console.log()
   console.error(
     `  ${colors.bgRed(colors.white(' ERROR '))} ${colors.red(
-      `invalid commit message format （无效的提交信息格式）.`
+      `invalid commit message format （无效的提交信息格式）.`,
     )}\n\n` +
       colors.red(`  Please use the correct commit message format. Examples:\n\n`) +
       `    ${colors.green(`feat: A new feature`)}\n` +
@@ -26,9 +26,9 @@ if (!commitRE.test(msg)) {
       colors.red(
         `  See ${terminalLink(
           'commit convention',
-          'https://maomao.fe-mm.com/workflow/style-guide#git-%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83'
-        )} for more details.\n`
-      )
+          'https://maomao.fe-mm.com/workflow/style-guide#git-%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83',
+        )} for more details.\n`,
+      ),
   )
   process.exit(1)
 }

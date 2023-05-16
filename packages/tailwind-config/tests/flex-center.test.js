@@ -18,8 +18,8 @@ it('tailwindcss plugins flex-center', () => {
   postcss([
     require('tailwindcss')({
       content: [{ raw: 'flex-row-center flex-col-center' }],
-      plugins: [require('../lib/plugins/flex-center')]
-    })
+      plugins: [require('../lib/plugins/flex-center')],
+    }),
   ])
     .process('@tailwind utilities', { from: undefined })
     .then(({ css }) => {

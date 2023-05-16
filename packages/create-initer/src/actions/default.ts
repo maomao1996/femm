@@ -20,7 +20,7 @@ export async function def(ctx: Context) {
             eslint: true,
             eslintConfig: '@antfu/eslint-config',
             lintStaged: true,
-            commitlint: true
+            commitlint: true,
           }
           ctx.render('prettier')
           ctx.render('eslint', ctx.config)
@@ -35,7 +35,7 @@ export async function def(ctx: Context) {
           error('error', e)
           ctx.exit(1)
         }
-      })
+      }),
   })
 
   if (hasGit) {

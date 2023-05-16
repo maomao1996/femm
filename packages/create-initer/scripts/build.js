@@ -9,7 +9,7 @@ const config = {
   outfile: 'dist/index.cjs',
   format: 'cjs',
   platform: 'node',
-  target: 'node12'
+  target: 'node12',
 }
 
 config.define = { 'process.env.PACKAGE_VERSION': JSON.stringify(pkg.version) }

@@ -17,7 +17,7 @@ npm i -D @femm/tailwind-config
 ```js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  presets: [require('@femm/tailwind-config')]
+  presets: [require('@femm/tailwind-config')],
 }
 ```
 

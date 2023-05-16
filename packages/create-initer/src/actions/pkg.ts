@@ -14,7 +14,7 @@ export async function pkg(ctx: Context) {
       label: title('Pkg'),
       message: `Create package.json ?`,
       hint: 'recommended',
-      initial: true
+      initial: true,
     })
 
     if (!createPkg) {
@@ -29,7 +29,7 @@ export async function pkg(ctx: Context) {
         runCommand('npm', ['init', '-y']).catch((e) => {
           error('error', e)
           ctx.exit(1)
-        })
+        }),
     })
   }
 }

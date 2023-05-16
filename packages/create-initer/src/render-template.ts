@@ -21,8 +21,8 @@ export function renderTemplate(templateName: string, templateData?: Record<strin
       const pkg = sortDependencies(
         deepMerge(
           existing,
-          JSON.parse(templateData ? template(newPackage)(templateData) : newPackage)
-        )
+          JSON.parse(templateData ? template(newPackage)(templateData) : newPackage),
+        ),
       )
       fs.writeFileSync(filePath, `${JSON.stringify(pkg, null, 2)}\n`)
       continue
