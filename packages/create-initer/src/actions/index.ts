@@ -1,5 +1,7 @@
 export * from './context'
 
+export * from './help'
+
 export * from './pkg'
 
 export * from './prettier'

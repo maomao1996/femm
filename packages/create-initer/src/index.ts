@@ -4,6 +4,7 @@ import { color, label } from '@astrojs/cli-kit'
 
 import {
   getContext,
+  help,
   pkg,
   prettier,
   eslint,
@@ -20,8 +21,12 @@ async function main() {
   const cleanArgv = process.argv.slice(2).filter((arg) => arg !== '--')
   const ctx = await getContext(cleanArgv)
 
-  console.log(`Welcome to use ${label('create-initer', color.bgGreen, color.black)}`)
+  if (ctx.help) {
+    help()
+    ctx.exit(0)
+  }
 
+  console.log(`Welcome to use ${label('create-initer', color.bgGreen, color.black)}`)
   console.log()
   console.log(label('Starting!', color.bgBlue, color.black))
   console.log()
