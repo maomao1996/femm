@@ -11,7 +11,8 @@ import {
   commitlint,
   husky,
   editorconfig,
-  gitignore
+  gitignore,
+  def
 } from './actions'
 import { error } from './messages'
 
@@ -21,7 +22,16 @@ async function main() {
 
   console.log(`Welcome to use ${label('create-initer', color.bgGreen, color.black)}`)
 
+  console.log()
+  console.log(label('Starting!', color.bgBlue, color.black))
+  console.log()
+
   await pkg(ctx)
+
+  if (ctx.yes) {
+    ctx.input = false
+    await def(ctx)
+  }
 
   if (ctx.input) {
     const steps = [prettier, eslint, lintStaged, commitlint, husky, editorconfig, gitignore]
@@ -31,8 +41,9 @@ async function main() {
     }
   }
 
-  console.log('\n')
+  console.log()
   console.log(label('Success !', color.bgGreen, color.black))
+  console.log()
 }
 
 main().catch((e) => {

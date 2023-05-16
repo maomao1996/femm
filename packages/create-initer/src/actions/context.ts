@@ -5,6 +5,7 @@ import { renderTemplate } from '../render-template'
 export interface Context {
   help: boolean
   input: boolean
+  yes: boolean
 
   config: Record<string, unknown>
 
@@ -19,15 +20,19 @@ export function getContext(argv: string[]): Context {
       '-h': '--help',
 
       '--input': Boolean,
-      '-i': '--input'
+      '-i': '--input',
+
+      '--yes': Boolean,
+      '-y': '--yes'
     },
     { argv, permissive: true }
   )
-  const { '--help': help = false, '--input': input = true } = flags
+  const { '--help': help = false, '--input': input = true, '--yes': yes = false } = flags
 
   const context: Context = {
     help,
     input,
+    yes,
     config: {},
 
     render: renderTemplate,

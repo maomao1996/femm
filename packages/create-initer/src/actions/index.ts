@@ -10,3 +10,5 @@ export * from './husky'
 
 export * from './editorconfig'
 export * from './gitignore'
+
+export * from './default'
