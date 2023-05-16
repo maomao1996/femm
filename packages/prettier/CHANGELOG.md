@@ -1,5 +1,11 @@
 # @femm/prettier
 
+## 1.1.0
+
+### Minor Changes
+
+- 9f5e9e9: 配置 `trailingComma: 'all'` 添加尾逗号
+
 ## 1.0.2
 
 ### Patch Changes
