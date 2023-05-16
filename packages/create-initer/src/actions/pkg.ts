@@ -7,7 +7,7 @@ import { error, spinner, title } from '../messages'
 import { runCommand } from '../utils/run-command'
 
 export async function pkg(ctx: Context) {
-  if (ctx.input && !fs.existsSync('./package.json')) {
+  if (!fs.existsSync('./package.json')) {
     const { createPkg } = await prompt({
       name: 'createPkg',
       type: 'confirm',

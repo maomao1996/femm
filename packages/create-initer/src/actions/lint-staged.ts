@@ -5,7 +5,7 @@ import { prompt } from '@astrojs/cli-kit'
 import { error, info, spinner, title } from '../messages'
 
 export async function lintStaged(ctx: Context) {
-  if (ctx.input && (ctx.config.prettier || ctx.config.eslint)) {
+  if (ctx.config.prettier || ctx.config.eslint) {
     const { needLintStaged } = await prompt({
       name: 'needLintStaged',
       type: 'confirm',
@@ -24,10 +24,7 @@ export async function lintStaged(ctx: Context) {
         while: () =>
           new Promise<void>((resolve) => {
             try {
-              ctx.render('lint-staged', {
-                prettier: ctx.config.prettier,
-                eslint: ctx.config.eslint
-              })
+              ctx.render('lint-staged', ctx.config)
               resolve()
             } catch (e) {
               error('error', e)

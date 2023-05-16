@@ -46,7 +46,7 @@ export async function installHusky(ctx: Context) {
 }
 
 export async function husky(ctx: Context) {
-  if (ctx.input && (ctx.config.lintStaged || ctx.config.commitlint)) {
+  if (ctx.config.lintStaged || ctx.config.commitlint) {
     const { needHusky } = await prompt({
       name: 'needHusky',
       type: 'confirm',

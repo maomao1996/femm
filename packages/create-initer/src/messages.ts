@@ -52,6 +52,12 @@ export const error = async (prefix: string, text: string) => {
   }
 }
 
+export const success = () => {
+  console.log()
+  console.log(label('Success !', color.bgGreen, color.black))
+  console.log()
+}
+
 export function printHelp({
   commandName,
   headline,

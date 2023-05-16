@@ -14,7 +14,7 @@ import {
   gitignore,
   def
 } from './actions'
-import { error } from './messages'
+import { error, success } from './messages'
 
 async function main() {
   const cleanArgv = process.argv.slice(2).filter((arg) => arg !== '--')
@@ -29,21 +29,17 @@ async function main() {
   await pkg(ctx)
 
   if (ctx.yes) {
-    ctx.input = false
     await def(ctx)
+    success()
+    ctx.exit(0)
   }
 
-  if (ctx.input) {
-    const steps = [prettier, eslint, lintStaged, commitlint, husky, editorconfig, gitignore]
-
-    for (const step of steps) {
-      await step(ctx)
-    }
+  const steps = [prettier, eslint, lintStaged, commitlint, husky, editorconfig, gitignore]
+  for (const step of steps) {
+    await step(ctx)
   }
-
-  console.log()
-  console.log(label('Success !', color.bgGreen, color.black))
-  console.log()
+  success()
+  ctx.exit(0)
 }
 
 main().catch((e) => {

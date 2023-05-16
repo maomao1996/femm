@@ -27,7 +27,7 @@ export function getContext(argv: string[]): Context {
     },
     { argv, permissive: true }
   )
-  const { '--help': help = false, '--input': input = true, '--yes': yes = false } = flags
+  const { '--help': help = false, '--input': input = false, '--yes': yes = false } = flags
 
   const context: Context = {
     help,
