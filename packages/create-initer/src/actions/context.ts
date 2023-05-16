@@ -1,4 +1,5 @@
 import arg from 'arg'
+import detectPackageManager from 'which-pm-runs'
 
 import { renderTemplate } from '../render-template'
 
@@ -7,6 +8,8 @@ export interface Context {
   input: boolean
   yes: boolean
 
+  pkgManager: string
+  install?: boolean
   config: Record<string, unknown>
 
   render: typeof renderTemplate
@@ -23,16 +26,29 @@ export function getContext(argv: string[]): Context {
       '-i': '--input',
 
       '--yes': Boolean,
-      '-y': '--yes'
+      '-y': '--yes',
+
+      '--install': Boolean,
+      '--no-install': Boolean
     },
     { argv, permissive: true }
   )
-  const { '--help': help = false, '--input': input = false, '--yes': yes = false } = flags
+  const pkgManager = detectPackageManager()?.name ?? 'npm'
+  const {
+    '--help': help = false,
+    '--input': input = false,
+    '--yes': yes,
+    '--install': install,
+    '--no-install': noInstall
+  } = flags
 
   const context: Context = {
     help,
     input,
     yes,
+
+    pkgManager,
+    install: install ?? (noInstall ? false : undefined),
     config: {},
 
     render: renderTemplate,

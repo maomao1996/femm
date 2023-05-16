@@ -13,7 +13,8 @@ import {
   husky,
   editorconfig,
   gitignore,
-  def
+  def,
+  dependencies
 } from './actions'
 import { error, success } from './messages'
 
@@ -39,7 +40,16 @@ async function main() {
     ctx.exit(0)
   }
 
-  const steps = [prettier, eslint, lintStaged, commitlint, husky, editorconfig, gitignore]
+  const steps = [
+    prettier,
+    eslint,
+    lintStaged,
+    commitlint,
+    husky,
+    editorconfig,
+    gitignore,
+    dependencies
+  ]
   for (const step of steps) {
     await step(ctx)
   }

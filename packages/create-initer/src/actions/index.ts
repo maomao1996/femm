@@ -14,3 +14,5 @@ export * from './editorconfig'
 export * from './gitignore'
 
 export * from './default'
+
+export * from './dependencies'

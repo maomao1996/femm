@@ -4,6 +4,7 @@ import * as fs from 'node:fs'
 
 import { error, warn, spinner } from '../messages'
 import { installHusky } from './husky'
+import { dependencies } from './dependencies'
 
 export async function def(ctx: Context) {
   const hasGit = fs.existsSync('./.git')
@@ -42,4 +43,6 @@ export async function def(ctx: Context) {
   } else {
     await warn('Warning', 'husky need .git to work')
   }
+
+  await dependencies(ctx)
 }

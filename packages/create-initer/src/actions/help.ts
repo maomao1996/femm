@@ -8,7 +8,8 @@ export function help() {
     tables: {
       Flags: [
         ['--help (-h)', 'See all available flags.'],
-        ['--yes (-y)', 'Skip all prompt by accepting defaults.']
+        ['--yes (-y)', 'Skip all prompt by accepting defaults.'],
+        ['--install / --no-install', 'Install dependencies (or not).']
       ]
     }
   })
