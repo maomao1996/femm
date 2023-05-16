@@ -1,5 +1,7 @@
 # @femm/prettier
 
+prettier config used by maomao
+
 ## 安装
 
 ```sh

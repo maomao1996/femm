@@ -17,8 +17,8 @@ module.exports = {
   singleQuote: true,
   // 在 jsx 中使用双引号
   jsxSingleQuote: false,
-  // 不添加尾随逗号
-  trailingComma: 'none',
+  // 添加尾随逗号
+  trailingComma: 'all',
   // 在对象花括号内的两旁添加空格 => { foo: bar }
   bracketSpacing: true,
   // HTML元素（包括 JSX 等）具有多个属性时，将结束标签右尖括号 ＞ 另起一行
