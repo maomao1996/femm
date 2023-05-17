@@ -1,5 +1,19 @@
 # create-initer
 
+## 0.2.0
+
+### Minor Changes
+
+- 5b9544f: 新增 `eslint` 配置生成
+- e88ab39: 新增 `--help (-h)`
+- aabfaf5: 新增依赖项安装
+- 263800a: 支持快速初始化
+- 606b53e: 新增 `package.json` 生成
+
+### Patch Changes
+
+- a1340fe: 修复 `ctx.config` 配置错误
+
 ## 0.1.1
 
 ### Patch Changes
