@@ -1,7 +1,7 @@
 {
   "name": "@femm/tailwind-config",
   "version": "1.0.0",
-  "description": "Personal tailwindcss config",
+  "description": "tailwindcss config used by maomao",
   "keywords": [
     "tailwindcss",
     "tailwindcss-config"

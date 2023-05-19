@@ -1,5 +1,7 @@
 # @femm/tailwind-config
 
+tailwindcss config used by maomao
+
 ## 安装
 
 ```sh
