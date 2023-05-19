@@ -10,8 +10,8 @@ export async function def(ctx: Context) {
   const hasGit = fs.existsSync('./.git')
 
   await spinner({
-    start: `Default config generating...`,
-    end: 'Default config generated',
+    start: `Generating default config...`,
+    end: 'Generated default config',
     while: () =>
       new Promise<void>(async (resolve) => {
         try {

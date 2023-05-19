@@ -10,7 +10,7 @@ export async function gitignore(ctx: Context) {
     const { needGitignore } = await prompt({
       name: 'needGitignore',
       type: 'confirm',
-      label: title('Gitignore'),
+      label: title('git'),
       message: `Need gitignore ?`,
       hint: 'recommended',
       initial: true,
@@ -20,8 +20,8 @@ export async function gitignore(ctx: Context) {
 
     if (needGitignore) {
       await spinner({
-        start: `Gitignore config generating...`,
-        end: 'Gitignore generated',
+        start: `Generating gitignore config...`,
+        end: 'Generated gitignore config',
         while: () =>
           new Promise<void>((resolve) => {
             try {
@@ -34,7 +34,7 @@ export async function gitignore(ctx: Context) {
           }),
       })
     } else {
-      await info('Gitignore [skip]', "Don't need gitignore")
+      await info('Git [skip]', "Don't need gitignore")
     }
   }
 }

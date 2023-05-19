@@ -16,7 +16,7 @@ export async function eslint(ctx: Context) {
   const { eslint } = await prompt({
     name: 'eslint',
     type: 'confirm',
-    label: title('ESLint'),
+    label: title('lint'),
     message: `Need eslint ?`,
     hint: 'recommended',
     initial: true,
@@ -35,7 +35,7 @@ export async function eslint(ctx: Context) {
     const { eslintConfig } = await prompt({
       name: 'eslintConfig',
       type: 'select',
-      label: title('ESLintConfig'),
+      label: title('eslint'),
       message: 'Select a eslint config',
       initial: '@antfu/eslint-config',
       choices,
@@ -44,8 +44,8 @@ export async function eslint(ctx: Context) {
     ctx.config.eslintConfig = eslintConfig
 
     await spinner({
-      start: `ESLint config generating...`,
-      end: 'ESLint generated',
+      start: `Generating eslint config...`,
+      end: 'Generated eslint config',
       while: () =>
         new Promise<void>((resolve) => {
           try {
@@ -58,6 +58,6 @@ export async function eslint(ctx: Context) {
         }),
     })
   } else {
-    await info('ESLint [skip]', "Don't need eslint")
+    await info('Lint [skip]', "Don't need eslint")
   }
 }

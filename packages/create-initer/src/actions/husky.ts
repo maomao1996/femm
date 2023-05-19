@@ -50,8 +50,8 @@ export async function husky(ctx: Context) {
     const { needHusky } = await prompt({
       name: 'needHusky',
       type: 'confirm',
-      label: title('Husky'),
-      message: `Need husky to check commit-msg and lint-staged?`,
+      label: title('git'),
+      message: `Need husky to check commit-msg and lint-staged ?`,
       hint: 'recommended',
       initial: true,
     })
@@ -60,7 +60,7 @@ export async function husky(ctx: Context) {
       ctx.render('husky')
       await installHusky(ctx)
     } else {
-      await info('Husky [skip]', "Don't need husky")
+      await info('Git [skip]', "Don't need husky")
     }
   }
 }

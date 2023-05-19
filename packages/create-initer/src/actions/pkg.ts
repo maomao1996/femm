@@ -11,7 +11,7 @@ export async function pkg(ctx: Context) {
     const { createPkg } = await prompt({
       name: 'createPkg',
       type: 'confirm',
-      label: title('Pkg'),
+      label: title('pkg'),
       message: `Create package.json ?`,
       hint: 'recommended',
       initial: true,

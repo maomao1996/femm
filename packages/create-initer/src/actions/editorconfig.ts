@@ -10,7 +10,7 @@ export async function editorconfig(ctx: Context) {
     const { needEditorconfig } = await prompt({
       name: 'needEditorconfig',
       type: 'confirm',
-      label: title('Editorconfig'),
+      label: title('editor'),
       message: `Need editorconfig ?`,
       hint: 'recommended',
       initial: true,
@@ -20,8 +20,8 @@ export async function editorconfig(ctx: Context) {
 
     if (needEditorconfig) {
       await spinner({
-        start: `Editorconfig config generating...`,
-        end: 'Editorconfig generated',
+        start: `Generating editor config...`,
+        end: 'Generated editor config',
         while: () =>
           new Promise<void>((resolve) => {
             try {
@@ -34,7 +34,7 @@ export async function editorconfig(ctx: Context) {
           }),
       })
     } else {
-      await info('Editorconfig [skip]', "Don't need editorconfig")
+      await info('Editor [skip]', "Don't need editorconfig")
     }
   }
 }

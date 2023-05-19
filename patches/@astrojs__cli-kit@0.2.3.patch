@@ -1,0 +1,36 @@
+diff --git a/dist/spinner/index.js b/dist/spinner/index.js
+index 53f5399824ee3e020539a858b2ba3501cd3514b8..31d639384979701a77e1ffbfcc08030fb0690008 100644
+--- a/dist/spinner/index.js
++++ b/dist/spinner/index.js
+@@ -4,14 +4,16 @@ import { createLogUpdate } from "log-update";
+ import { erase, cursor } from "sisteransi";
+ import { sleep } from "../utils/index.js";
+ const COLORS = [
+-    "#883AE3",
+-    "#7B30E7",
+-    "#6B22EF",
+-    "#5711F8",
+-    "#3640FC",
+-    "#2387F1",
+-    "#3DA9A3",
+-    "#47DA93",
++  "#883AE3",
++  "#7B30E7",
++  "#6B22EF",
++  "#5C1CF8",
++  "#4E11F8",
++  "#3640FC",
++  "#2A5AFD",
++  "#2387F1",
++  "#3DA9A3",
++  "#47DA93"
+ ].reverse();
+ const FULL_FRAMES = [
+     ...Array.from({ length: COLORS.length - 1 }, () => COLORS[0]),
+@@ -101,5 +103,5 @@ export async function spinner({ start, end, while: update = () => sleep(100), },
+         await act;
+         loading.stop();
+     }
+-    stdout.write(`${" ".repeat(5)} ${chalk.green("✔")}  ${chalk.green(end)}\n`);
++    stdout.write(`${" ".repeat(7)} ${chalk.green("✔")}  ${chalk.green(end)}\n`);
+ }

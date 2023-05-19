@@ -9,7 +9,7 @@ export async function lintStaged(ctx: Context) {
     const { needLintStaged } = await prompt({
       name: 'needLintStaged',
       type: 'confirm',
-      label: title('LintStaged'),
+      label: title('git'),
       message: `Need lint-staged ?`,
       hint: 'recommended',
       initial: true,
@@ -19,8 +19,8 @@ export async function lintStaged(ctx: Context) {
 
     if (needLintStaged) {
       await spinner({
-        start: `LintStaged config generating...`,
-        end: 'LintStaged generated',
+        start: `Generating lint-staged config...`,
+        end: 'Generated lint-staged config',
         while: () =>
           new Promise<void>((resolve) => {
             try {
@@ -33,7 +33,7 @@ export async function lintStaged(ctx: Context) {
           }),
       })
     } else {
-      await info('LintStaged [skip]', "Don't need lint-staged")
+      await info('Git [skip]', "Don't need lint-staged")
     }
   }
 }

@@ -1,5 +1,10 @@
 lockfileVersion: '6.0'
 
+patchedDependencies:
+  '@astrojs/cli-kit@0.2.3':
+    hash: ot2ccrrhae237ua6c2lcoquxsu
+    path: patches/@astrojs__cli-kit@0.2.3.patch
+
 importers:
 
   .:
@@ -29,8 +34,8 @@ importers:
   packages/create-initer:
     dependencies:
       '@astrojs/cli-kit':
-        specifier: ^0.2.3
-        version: 0.2.3
+        specifier: 0.2.3
+        version: 0.2.3(patch_hash=ot2ccrrhae237ua6c2lcoquxsu)
       arg:
         specifier: ^5.0.2
         version: 5.0.2
@@ -87,13 +92,14 @@ packages:
       '@jridgewell/trace-mapping': 0.3.18
     dev: true
 
-  /@astrojs/cli-kit@0.2.3:
+  /@astrojs/cli-kit@0.2.3(patch_hash=ot2ccrrhae237ua6c2lcoquxsu):
     resolution: {integrity: sha512-MjB42mpIG/F2rFtdp4f3NylFCILuFSib2yITSq65fRaDFn8+UC8EMh6T7Jr3YqHAbUY5r8V8QWNgH4keOEO2BA==}
     dependencies:
       chalk: 5.2.0
       log-update: 5.0.1
       sisteransi: 1.0.5
     dev: false
+    patched: true
 
   /@babel/code-frame@7.18.6:
     resolution: {integrity: sha512-TDCmlK5eOvH+eH7cdAFlNXeVJqWIQ7gW9tY1GJIpUtFb6CmjVyq2VM3u71bOyR8CRihcCgMUYoDNyLXao3+70Q==}

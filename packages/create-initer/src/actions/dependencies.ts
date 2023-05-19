@@ -11,7 +11,7 @@ export async function dependencies(ctx: Context) {
     ;({ deps } = await prompt({
       name: 'deps',
       type: 'confirm',
-      label: title('Deps'),
+      label: title('deps'),
       message: `Install dependencies ?`,
       hint: 'recommended',
       initial: true,

@@ -12,6 +12,19 @@ export async function say(messages: string | string[], { clear = false, hat = ''
   return houston(messages, { clear, hat, stdout })
 }
 
+/**
+ * spinner color gradient
+ * #883AE3
+ * #7B30E7
+ * #6B22EF
+ * #5C1CF8
+ * #4E11F8
+ * #3640FC
+ * #2A5AFD
+ * #2387F1
+ * #3DA9A3
+ * #47DA93
+ */
 export async function spinner(args: {
   start: string
   end: string
@@ -20,42 +33,35 @@ export async function spinner(args: {
   await load(args, { stdout })
 }
 
-export const title = (text: string) => align(label(text), 'end', 7) + ' '
+export const createIndent = (length: number) => ' '.repeat(length)
+const TITLE_MAX_LENGTH = 9
+
+export const title = (text: string) => align(label(text), 'end', TITLE_MAX_LENGTH) + ' '
 
 export const log = (message: string) => stdout.write(message + '\n')
 
+const formatLog = (title: string, text: string) => {
+  if (stdout.columns < 80) {
+    log(`${createIndent(TITLE_MAX_LENGTH - 2)} ${title}`)
+    log(`${createIndent(TITLE_MAX_LENGTH + 2)} ${color.dim(text)}`)
+  } else {
+    log(`${createIndent(TITLE_MAX_LENGTH - 2)} ${title} ${color.dim(text)}`)
+  }
+}
+
 export const info = async (prefix: string, text: string) => {
   await sleep(100)
-  if (stdout.columns < 80) {
-    log(`${' '.repeat(5)} ${color.cyan('◼')}  ${color.cyan(prefix)}`)
-    log(`${' '.repeat(9)}${color.dim(text)}`)
-  } else {
-    log(`${' '.repeat(5)} ${color.cyan('◼')}  ${color.cyan(prefix)} ${color.dim(text)}`)
-  }
+  formatLog(color.cyan(`◼  ${prefix}`), text)
 }
 
-export const warn = async (prefix: string, text: string) => {
-  if (stdout.columns < 80) {
-    log(`${' '.repeat(5)} ${color.yellow('⚠️')}  ${color.yellow(prefix)}`)
-    log(`${' '.repeat(9)}${color.dim(text)}`)
-  } else {
-    log(`${' '.repeat(5)} ${color.yellow('⚠️')}  ${color.yellow(prefix)} ${color.dim(text)}`)
-  }
-}
+export const warn = (prefix: string, text: string) => formatLog(color.yellow(`⚠️  ${prefix}`), text)
 
-export const error = async (prefix: string, text: string) => {
-  if (stdout.columns < 80) {
-    log(`${' '.repeat(5)} ${color.red('▲')}  ${color.red(prefix)}`)
-    log(`${' '.repeat(9)}${color.dim(text)}`)
-  } else {
-    log(`${' '.repeat(5)} ${color.red('▲')}  ${color.red(prefix)} ${color.dim(text)}`)
-  }
-}
+export const error = (prefix: string, text: string) => formatLog(color.red(`▲  ${prefix}`), text)
 
 export const success = () => {
-  console.log()
-  console.log(label('Success !', color.bgGreen, color.black))
-  console.log()
+  log('')
+  log(label('Success !', color.bgGreen, color.black))
+  log('')
 }
 
 export function printHelp({

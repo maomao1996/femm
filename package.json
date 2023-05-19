@@ -38,5 +38,10 @@
     "*.{js,jsx,tsx,vue,css,scss,less,md}": [
       "prettier --write"
     ]
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@astrojs/cli-kit@0.2.3": "patches/@astrojs__cli-kit@0.2.3.patch"
+    }
   }
 }

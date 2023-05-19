@@ -46,8 +46,8 @@ async function main() {
     lintStaged,
     commitlint,
     husky,
-    editorconfig,
     gitignore,
+    editorconfig,
     dependencies,
   ]
   for (const step of steps) {

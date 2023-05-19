@@ -8,7 +8,7 @@ export async function prettier(ctx: Context) {
   const { needPrettier } = await prompt({
     name: 'needPrettier',
     type: 'confirm',
-    label: title('Prettier'),
+    label: title('format'),
     message: `Need prettier ?`,
     hint: 'recommended',
     initial: true,
@@ -18,8 +18,8 @@ export async function prettier(ctx: Context) {
 
   if (needPrettier) {
     await spinner({
-      start: `Prettier config generating...`,
-      end: 'Prettier generated',
+      start: `Generating prettier config...`,
+      end: 'Generated prettier config',
       while: () =>
         new Promise<void>((resolve) => {
           try {
@@ -32,6 +32,6 @@ export async function prettier(ctx: Context) {
         }),
     })
   } else {
-    await info('Prettier [skip]', "Don't need prettier")
+    await info('Format [skip]', "Don't need prettier")
   }
 }

@@ -8,7 +8,7 @@ export async function commitlint(ctx: Context) {
   const { needCommitlint } = await prompt({
     name: 'needCommitlint',
     type: 'confirm',
-    label: title('Commitlint'),
+    label: title('git'),
     message: `Need commitlint ?`,
     hint: 'recommended',
     initial: true,
@@ -18,8 +18,8 @@ export async function commitlint(ctx: Context) {
 
   if (needCommitlint) {
     await spinner({
-      start: `Commitlint config generating...`,
-      end: 'Commitlint generated',
+      start: `Generating commitlint config...`,
+      end: 'Generated commitlint config',
       while: () =>
         new Promise<void>((resolve) => {
           try {
@@ -32,6 +32,6 @@ export async function commitlint(ctx: Context) {
         }),
     })
   } else {
-    await info('Commitlint [skip]', "Don't need commitlint")
+    await info('Git [skip]', "Don't need commitlint")
   }
 }
