@@ -2,6 +2,7 @@ import arg from 'arg'
 import detectPackageManager from 'which-pm-runs'
 
 import { renderTemplate } from '../render-template'
+import { error } from '../messages'
 
 export interface Context {
   help: boolean
@@ -12,7 +13,7 @@ export interface Context {
   install?: boolean
   config: Record<string, unknown>
 
-  render: typeof renderTemplate
+  render: (templateName: string, templateData?: Record<string, unknown>) => Promise<void>
   exit(code: number): never
 }
 
@@ -51,7 +52,16 @@ export function getContext(argv: string[]): Context {
     install: install ?? (noInstall ? false : undefined),
     config: {},
 
-    render: renderTemplate,
+    render: (templateName, templateData) =>
+      new Promise<void>((resolve) => {
+        try {
+          renderTemplate(templateName, templateData)
+          resolve()
+        } catch (e) {
+          error('render error', e)
+          context.exit(1)
+        }
+      }),
     exit(code) {
       process.exit(code)
     },

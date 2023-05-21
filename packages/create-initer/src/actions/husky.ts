@@ -1,8 +1,7 @@
 import type { Context } from './context'
 
-import { prompt } from '@astrojs/cli-kit'
-
-import { error, info, spinner, title } from '../messages'
+import { createAction } from '../utils/create-action'
+import { error, spinner } from '../messages'
 import { runCommand } from '../utils/run-command'
 
 export async function installHusky(ctx: Context) {
@@ -45,22 +44,13 @@ export async function installHusky(ctx: Context) {
   }
 }
 
-export async function husky(ctx: Context) {
-  if (ctx.config.lintStaged || ctx.config.commitlint) {
-    const { needHusky } = await prompt({
-      name: 'needHusky',
-      type: 'confirm',
-      label: title('git'),
-      message: `Need husky to check commit-msg and lint-staged ?`,
-      hint: 'recommended',
-      initial: true,
-    })
-
-    if (needHusky) {
-      ctx.render('husky')
+export const husky = (ctx: Context) =>
+  createAction({
+    ctx,
+    name: 'husky',
+    label: 'git',
+    actionCallback: async () => {
+      await ctx.render('husky')
       await installHusky(ctx)
-    } else {
-      await info('Git [skip]', "Don't need husky")
-    }
-  }
-}
+    },
+  })

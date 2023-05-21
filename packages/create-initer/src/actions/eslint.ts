@@ -2,7 +2,8 @@ import type { Context } from './context'
 
 import { prompt } from '@astrojs/cli-kit'
 
-import { error, info, spinner, title } from '../messages'
+import { createAction } from '../utils/create-action'
+import { spinner, title } from '../messages'
 
 const CHOICES = [
   { value: '@antfu/eslint-config', label: '@antfu/eslint-config', hint: '(recommended)' },
@@ -12,52 +13,34 @@ const CHOICES = [
   { value: '@antfu/eslint-config-vue', label: '@antfu/eslint-config-vue' },
 ]
 
-export async function eslint(ctx: Context) {
-  const { eslint } = await prompt({
+export const eslint = (ctx: Context) =>
+  createAction({
+    ctx,
     name: 'eslint',
-    type: 'confirm',
-    label: title('lint'),
-    message: `Need eslint ?`,
-    hint: 'recommended',
-    initial: true,
+    label: 'lint',
+    actionCallback: async () => {
+      const choices = ctx.config.prettier
+        ? CHOICES.map(({ ...choice }) => {
+            choice.label += ' + prettier'
+            return choice
+          })
+        : CHOICES
+
+      const { eslintConfig } = await prompt({
+        name: 'eslintConfig',
+        type: 'select',
+        label: title('eslint'),
+        message: 'Select a eslint config',
+        initial: '@antfu/eslint-config',
+        choices,
+      })
+
+      ctx.config.eslintConfig = eslintConfig
+
+      await spinner({
+        start: `Generating eslint config...`,
+        end: 'Generated eslint config',
+        while: () => ctx.render('eslint', ctx.config),
+      })
+    },
   })
-
-  ctx.config.eslint = eslint
-
-  if (eslint) {
-    const choices = ctx.config.prettier
-      ? CHOICES.map(({ ...choice }) => {
-          choice.label += ' + prettier'
-          return choice
-        })
-      : CHOICES
-
-    const { eslintConfig } = await prompt({
-      name: 'eslintConfig',
-      type: 'select',
-      label: title('eslint'),
-      message: 'Select a eslint config',
-      initial: '@antfu/eslint-config',
-      choices,
-    })
-
-    ctx.config.eslintConfig = eslintConfig
-
-    await spinner({
-      start: `Generating eslint config...`,
-      end: 'Generated eslint config',
-      while: () =>
-        new Promise<void>((resolve) => {
-          try {
-            ctx.render('eslint', ctx.config)
-            resolve()
-          } catch (e) {
-            error('error', e)
-            ctx.exit(1)
-          }
-        }),
-    })
-  } else {
-    await info('Lint [skip]', "Don't need eslint")
-  }
-}

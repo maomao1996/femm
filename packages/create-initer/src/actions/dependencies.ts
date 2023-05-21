@@ -5,7 +5,16 @@ import { execa } from 'execa'
 
 import { error, info, spinner, title } from '../messages'
 
-export async function dependencies(ctx: Context) {
+async function install(pkgManager: string, cwd: string = process.cwd()) {
+  const installExec = execa(pkgManager, ['install'], { cwd })
+  return new Promise<void>((resolve, reject) => {
+    setTimeout(() => reject(`Request timed out after one minute`), 60_000)
+    installExec.on('error', (e) => reject(e))
+    installExec.on('close', () => resolve())
+  })
+}
+
+export const dependencies = async (ctx: Context) => {
   let deps = ctx.install ?? ctx.yes
   if (deps === undefined) {
     ;({ deps } = await prompt({
@@ -31,13 +40,4 @@ export async function dependencies(ctx: Context) {
   } else {
     await info('Deps [skip]', 'Remember to install dependencies after setup.')
   }
-}
-
-async function install(pkgManager: string, cwd: string = process.cwd()) {
-  const installExec = execa(pkgManager, ['install'], { cwd })
-  return new Promise<void>((resolve, reject) => {
-    setTimeout(() => reject(`Request timed out after one minute`), 60_000)
-    installExec.on('error', (e) => reject(e))
-    installExec.on('close', () => resolve())
-  })
 }

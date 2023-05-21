@@ -1,39 +1,20 @@
 import type { Context } from './context'
 
-import { prompt } from '@astrojs/cli-kit'
+import { createAction } from '../utils/create-action'
+import { spinner } from '../messages'
 
-import { error, info, spinner, title } from '../messages'
-
-export async function lintStaged(ctx: Context) {
+export const lintStaged = async (ctx: Context) => {
   if (ctx.config.prettier || ctx.config.eslint) {
-    const { needLintStaged } = await prompt({
-      name: 'needLintStaged',
-      type: 'confirm',
-      label: title('git'),
-      message: `Need lint-staged ?`,
-      hint: 'recommended',
-      initial: true,
+    await createAction({
+      ctx,
+      name: 'lint-staged',
+      label: 'git',
+      actionCallback: () =>
+        spinner({
+          start: `Generating lint-staged config...`,
+          end: 'Generated lint-staged config',
+          while: () => ctx.render('lint-staged', ctx.config),
+        }),
     })
-
-    ctx.config.lintStaged = needLintStaged
-
-    if (needLintStaged) {
-      await spinner({
-        start: `Generating lint-staged config...`,
-        end: 'Generated lint-staged config',
-        while: () =>
-          new Promise<void>((resolve) => {
-            try {
-              ctx.render('lint-staged', ctx.config)
-              resolve()
-            } catch (e) {
-              error('error', e)
-              ctx.exit(1)
-            }
-          }),
-      })
-    } else {
-      await info('Git [skip]', "Don't need lint-staged")
-    }
   }
 }

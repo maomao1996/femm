@@ -1,40 +1,22 @@
 import type { Context } from './context'
 
 import * as fs from 'node:fs'
-import { prompt } from '@astrojs/cli-kit'
 
-import { error, info, spinner, title } from '../messages'
+import { createAction } from '../utils/create-action'
+import { spinner } from '../messages'
 
-export async function editorconfig(ctx: Context) {
+export const editorconfig = async (ctx: Context) => {
   if (!fs.existsSync('./.editorconfig')) {
-    const { needEditorconfig } = await prompt({
-      name: 'needEditorconfig',
-      type: 'confirm',
-      label: title('editor'),
-      message: `Need editorconfig ?`,
-      hint: 'recommended',
-      initial: true,
+    await createAction({
+      ctx,
+      name: 'editorconfig',
+      label: 'editor',
+      actionCallback: () =>
+        spinner({
+          start: `Generating editor config...`,
+          end: 'Generated editor config',
+          while: () => ctx.render('editorconfig'),
+        }),
     })
-
-    ctx.config.editorconfig = needEditorconfig
-
-    if (needEditorconfig) {
-      await spinner({
-        start: `Generating editor config...`,
-        end: 'Generated editor config',
-        while: () =>
-          new Promise<void>((resolve) => {
-            try {
-              ctx.render('editorconfig')
-              resolve()
-            } catch (e) {
-              error('error', e)
-              ctx.exit(1)
-            }
-          }),
-      })
-    } else {
-      await info('Editor [skip]', "Don't need editorconfig")
-    }
   }
 }
