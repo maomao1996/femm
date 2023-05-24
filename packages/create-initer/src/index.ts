@@ -11,10 +11,11 @@ import {
   lintStaged,
   commitlint,
   husky,
-  editorconfig,
   gitignore,
+  editorconfig,
   def,
   nvmrc,
+  npmrc,
   dependencies,
 } from './actions'
 import { error, success } from './messages'
@@ -50,6 +51,7 @@ async function main() {
     gitignore,
     editorconfig,
     nvmrc,
+    npmrc,
     dependencies,
   ]
   for (const step of steps) {
