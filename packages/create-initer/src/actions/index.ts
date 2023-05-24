@@ -15,4 +15,6 @@ export * from './gitignore'
 
 export * from './default'
 
+export * from './nvmrc'
+
 export * from './dependencies'

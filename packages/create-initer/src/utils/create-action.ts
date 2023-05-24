@@ -9,12 +9,14 @@ export async function createAction({
   ctx,
   name,
   label,
+  hint = 'recommended',
   initial = true,
   actionCallback,
 }: {
   ctx: Context
   name: string
   label?: string
+  hint?: string
   initial?: boolean
   actionCallback?: () => Promise<void>
 }) {
@@ -23,7 +25,7 @@ export async function createAction({
     type: 'confirm',
     label: title(label),
     message: `Need ${name}?`,
-    hint: 'recommended',
+    hint,
     initial,
   })
 

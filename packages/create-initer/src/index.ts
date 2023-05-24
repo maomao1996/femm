@@ -14,6 +14,7 @@ import {
   editorconfig,
   gitignore,
   def,
+  nvmrc,
   dependencies,
 } from './actions'
 import { error, success } from './messages'
@@ -48,6 +49,7 @@ async function main() {
     husky,
     gitignore,
     editorconfig,
+    nvmrc,
     dependencies,
   ]
   for (const step of steps) {
