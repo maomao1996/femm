@@ -1,5 +1,19 @@
 # create-initer
 
+## 0.3.0
+
+### Minor Changes
+
+- bb2e2a1: 新增 `.lintstagedrc` 配置文件
+- 89c1d2e: 新增 `nvmrc` 配置生成
+- b9afcfc: 新增 `npmrc` 配置生成
+
+### Patch Changes
+
+- 64e0655: 封装 `createAction` 重构 `actions`
+- 2edbe02: 优化输出样式提升用户体验
+- 0bf5075: 更新模板依赖
+
 ## 0.2.0
 
 ### Minor Changes
