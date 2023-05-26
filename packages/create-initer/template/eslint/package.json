@@ -4,8 +4,8 @@
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "<%= eslintConfig %>": "^0.38.6",
-    "eslint": "^8.35.0"<% if (prettier) { %>,
+    "<%= eslintConfig %>": "^0.39.3",
+    "eslint": "^8.41.0"<% if (prettier) { %>,
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1"<% } %>
   }

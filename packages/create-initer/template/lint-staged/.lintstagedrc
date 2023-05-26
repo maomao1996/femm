@@ -1,5 +1,5 @@
 {
-  <% if (prettier && eslint) { %>"*.{json,json5}": [
+  <% if (prettier && eslint) { %>"*.{json,json5,jsonc}": [
     "eslint --fix"
   ],
   "*.{css,scss,less}": [
@@ -8,7 +8,7 @@
   "*.{js,cjs,mjs,jsx,ts,tsx,mts,cts,vue,html,md,yaml,yml}": [
     "eslint --fix",
     "prettier --write"
-  ]<% } else if (prettier) { %>"*.{js,cjs,mjs,jsx,ts,tsx,mts,cts,vue,html,css,scss,less,md,yaml,yml,json,json5}": [
+  ]<% } else if (prettier) { %>"*.{js,cjs,mjs,jsx,ts,tsx,mts,cts,vue,html,css,scss,less,md,yaml,yml,json,json5,jsonc}": [
     "prettier --write"
   ]<% } else if (eslint) { %>"*": [
     "eslint --fix"

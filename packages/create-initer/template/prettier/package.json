@@ -3,7 +3,7 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@femm/prettier": "^1.0.2",
-    "prettier": "^2.8.5"
+    "@femm/prettier": "^1.1.0",
+    "prettier": "^2.8.8"
   }
 }
