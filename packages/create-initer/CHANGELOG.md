@@ -1,5 +1,11 @@
 # create-initer
 
+## 0.3.1
+
+### Patch Changes
+
+- fab3fbe: 修复 `npmrc` 文件丢失
+
 ## 0.3.0
 
 ### Minor Changes
