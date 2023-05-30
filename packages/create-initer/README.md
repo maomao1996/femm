@@ -22,9 +22,9 @@ yarn create initer@latest
 > 功能正在完善中，欢迎提供更多的配置文件
 
 - [x] prettier
-- [x] eslint
+- [x] eslint（使用 [@antfu/eslint-config](https://github.com/antfu/eslint-config) 配置规则 ）
 - [x] lint-staged
-- [x] commitlint （使用 [@femm/verify-commit](/packages/verify-commit) 进行校验 ）
+- [x] commitlint（使用 [@femm/verify-commit](/packages/verify-commit) 进行校验 ）
 - [x] husky
 - [x] editorconfig
 - [x] gitignore
