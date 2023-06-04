@@ -20,7 +20,7 @@ export async function installHusky(ctx: Context) {
       start: `Husky adding pre-commit hook...`,
       end: 'Husky added pre-commit hook',
       while: () =>
-        runCommand('npx', ['husky', 'add', '.husky/pre-commit', 'npx lint-staged --quiet']).catch(
+        runCommand('npx', ['husky', 'set', '.husky/pre-commit', 'npx lint-staged --quiet']).catch(
           (e) => {
             error('error', e)
             ctx.exit(1)
@@ -34,7 +34,7 @@ export async function installHusky(ctx: Context) {
       start: `Husky adding commit-msg hook...`,
       end: 'Husky added commit-msg hook',
       while: () =>
-        runCommand('npx', ['husky', 'add', '.husky/commit-msg', 'npx femm-verify-commit $1']).catch(
+        runCommand('npx', ['husky', 'set', '.husky/commit-msg', 'npx femm-verify-commit $1']).catch(
           (e) => {
             error('error', e)
             ctx.exit(1)
