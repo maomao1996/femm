@@ -1,5 +1,11 @@
 # create-initer
 
+## 0.3.2
+
+### Patch Changes
+
+- 9484edd: 修复 `husky hook` 重复添加
+
 ## 0.3.1
 
 ### Patch Changes

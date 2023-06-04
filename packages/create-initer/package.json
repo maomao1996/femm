@@ -1,7 +1,7 @@
 {
   "name": "create-initer",
   "type": "module",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "An easy way to create various configuration files",
   "keywords": [
     "config",
