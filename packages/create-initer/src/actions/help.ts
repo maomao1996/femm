@@ -10,6 +10,7 @@ export function help() {
         ['--help (-h)', 'See all available flags.'],
         ['--yes (-y)', 'Skip all prompt by accepting defaults.'],
         ['--install / --no-install', 'Install dependencies (or not).'],
+        ['--dry-run', 'Walk through steps without executing.'],
       ],
     },
   })

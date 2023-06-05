@@ -21,13 +21,15 @@ export const dependencies = async (ctx: Context) => {
       name: 'deps',
       type: 'confirm',
       label: title('deps'),
-      message: `Install dependencies ?`,
+      message: `Install dependencies?`,
       hint: 'recommended',
       initial: true,
     }))
     ctx.install = deps
   }
-  if (deps) {
+  if (ctx.dryRun) {
+    await info('--dry-run', 'Skipping dependency installation')
+  } else if (deps) {
     await spinner({
       start: `Dependencies installing with ${ctx.pkgManager}...`,
       end: 'Dependencies installed',

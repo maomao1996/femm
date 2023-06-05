@@ -31,7 +31,9 @@ export async function createAction({
 
   ctx.config[camelCase(name)] = needAction
 
-  if (needAction) {
+  if (ctx.dryRun) {
+    await info('--dry-run', `Skipping ${name}`)
+  } else if (needAction) {
     try {
       await actionCallback?.()
     } catch (e) {

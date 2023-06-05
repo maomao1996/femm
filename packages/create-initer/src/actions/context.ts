@@ -6,11 +6,11 @@ import { error } from '../messages'
 
 export interface Context {
   help: boolean
-  input: boolean
-  yes: boolean
+  yes?: boolean
+  install?: boolean
+  dryRun?: boolean
 
   pkgManager: string
-  install?: boolean
   config: Record<string, unknown>
 
   render: (templateName: string, templateData?: Record<string, unknown>) => Promise<void>
@@ -23,33 +23,32 @@ export function getContext(argv: string[]): Context {
       '--help': Boolean,
       '-h': '--help',
 
-      '--input': Boolean,
-      '-i': '--input',
-
       '--yes': Boolean,
       '-y': '--yes',
 
       '--install': Boolean,
       '--no-install': Boolean,
+      '--dry-run': Boolean,
     },
     { argv, permissive: true },
   )
   const pkgManager = detectPackageManager()?.name ?? 'npm'
   const {
     '--help': help = false,
-    '--input': input = false,
     '--yes': yes,
     '--install': install,
     '--no-install': noInstall,
+    '--dry-run': dryRun,
   } = flags
 
   const context: Context = {
     help,
-    input,
     yes,
 
-    pkgManager,
     install: install ?? (noInstall ? false : undefined),
+    dryRun,
+
+    pkgManager,
     config: {},
 
     render: (templateName, templateData) =>
