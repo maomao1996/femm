@@ -1,5 +1,15 @@
 # create-initer
 
+## 0.4.0
+
+### Minor Changes
+
+- 3d41d2f: 新增 `--dry-run`
+
+### Patch Changes
+
+- 796c1e0: 添加版本提示
+
 ## 0.3.2
 
 ### Patch Changes
