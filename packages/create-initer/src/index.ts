@@ -18,7 +18,7 @@ import {
   npmrc,
   dependencies,
 } from './actions'
-import { error, success } from './messages'
+import { log, error, success } from './messages'
 
 async function main() {
   const cleanArgv = process.argv.slice(2).filter((arg) => arg !== '--')
@@ -29,10 +29,14 @@ async function main() {
     ctx.exit(0)
   }
 
-  console.log(`Welcome to use ${label('create-initer', color.bgGreen, color.black)}`)
-  console.log()
-  console.log(label('Starting!', color.bgBlue, color.black))
-  console.log()
+  log(
+    `Welcome to use ${label('create-initer', color.bgGreen, color.black)} ${color.green(
+      `v${process.env.PACKAGE_VERSION ?? ''}`,
+    )}`,
+  )
+  log('')
+  log(label('Starting!', color.bgBlue, color.black))
+  log('')
 
   await pkg(ctx)
 
